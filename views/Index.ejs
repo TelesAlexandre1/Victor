@@ -1,0 +1,71 @@
+<%- include('../partials/header.ejs') %>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css" />
+
+    <body style="background-color: #15181b;">
+        <section>
+            <nav>
+                
+                <div>
+                    <div data-ux="Block" class="navbar-brand">
+                        <img src="//img1.wsimg.com/isteam/ip/45cec8a6-a58d-4286-83e0-29368cb0797b/blob-ad9bb88.png/:/rs=h:77,cg:true,m/qt=q:95" srcset="//img1.wsimg.com/isteam/ip/45cec8a6-a58d-4286-83e0-29368cb0797b/blob-ad9bb88.png/:/rs=w:104,h:77,cg:true,m/cr=w:104,h:77/qt=q:95,
+                        //img1.wsimg.com/isteam/ip/45cec8a6-a58d-4286-83e0-29368cb0797b/blob-ad9bb88.png/:/rs=w:208,h:154,cg:true,m/cr=w:208,h:154/qt=q:95 2x,
+                         //img1.wsimg.com/isteam/ip/45cec8a6-a58d-4286-83e0-29368cb0797b/blob-ad9bb88.png/:/rs=w:312,h:231,cg:true,m/cr=w:312,h:231/qt=q:95 3x" alt="victorgteam.com" data-ux="ImageLogo" data-aid="HEADER_LOGO_IMAGE_RENDERED" class="x-el x-el-img c1-1 c1-2 c1-33 c1-10 c1-u c1-s c1-r c1-t c1-11 c1-39 c1-3a c1-3b c1-23 c1-3c c1-1f c1-1g c1-1h c1-1i c1-1j c1-1k 
+                            c1-b c1-c c1-3d c1-3e c1-1l c1-3f c1-3g c1-3h c1-3i c1-3j c1-3k c1-3l c1-3m c1-3n c1-3o c1-3p c1-d c1-3q c1-3r c1-3s c1-e c1-f c1-g" />
+                    </div>
+                    <div style="display: flex; justify-content:space-around">
+                        <div style="color: white;">
+                            <video src="./video/index.mp4" height="85%" width="85%" />
+                        </div>
+                        <div style="display:table-row; flex-direction: row; justify-content:space-between">
+                            <br>
+                            <div style="display: flex;text-justify: auto;   ">
+                                <div class="label2" style="text-align: justify; color: white; font-size:x-large;">Bem-vindo ao portal Victor Team</div>
+                            </div>
+                            <div>
+                                <div>
+                                    Novo por aqui? <a href="./Cadastro" class="" style="color: rgb(139, 97, 255);">Cadastre-se</a>
+                                    <p></p>
+                                    <div class="divider align-items-center my-lg-5"></div>
+                                </div>
+                                <form action="auth" method="POST">
+                                <div class="form-outline mb-4 ">
+                                    <label class="form-label label1" for="EMAIL">Email</label>
+                                    <input type="EMAIL" id="EMAIL" value="<%= EMAIL %>" name="EMAIL" class="form-control form-control-lg" placeholder="Entre com mail valido" style="background-color:  rgb(33, 31, 31); -webkit-text-fill-color: rgb(241, 231, 231);  border-color:rgb(163, 91, 240);" />
+                                    <div style="font-size: x-small; color: red; width:auto">
+                                    
+                                    <% if (EMAILError) { %> <%= EMAILError %> <% } %>
+                                    <% if (EMAILIncorrect) { %> <%= EMAILIncorrect %> <% } %>
+                                    </div>
+                                </div>
+                                <div class="form-outline mb-3">
+                                    <label class="form-label label1" for="PASSWORD">Senha</label>
+                                    <input type="PASSWORD" id="PASSWORD" name="PASSWORD" class="form-control form-control-lg" placeholder="informe a senha" style="background-color:  rgb(33, 31, 31); -webkit-text-fill-color: rgb(241, 231, 231); border-color:rgb(163, 91, 240);" />
+                                    <div style="font-size: x-small; color: red; width:auto">
+                                    
+                                        <% if (PASSWORDIncorrect) { %> <%= PASSWORDIncorrect %> <% } %>
+                                        <% if (PASSWORDError) { %> <%= PASSWORDError %> <% } %>
+                                        <br>
+                                        <% if (EMAILIncorrect1) { %><%= EMAILIncorrect1 %><% } %>
+
+                                    </div>
+                                   
+                                </div>
+
+                                <a href="./Home">
+                                    <button type="submit" class="button332" style="height: 60px; width: 500px; ">
+                                     Entrar
+                                    </button>
+                                </a>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+        </section>
+
+    </body>
+
+    <%- include('../partials/footer.ejs') %>

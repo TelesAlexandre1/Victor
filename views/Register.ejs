@@ -1,0 +1,154 @@
+<%- include('../partials/header.ejs') %>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <script type="text/javascript">
+        var Create = true;
+        
+        if(Create!=null)
+        {
+        showAlert(Sucess.message);
+        }
+        
+        
+        showAlert = function(err) {
+        alert('error: ' + err);
+        }
+        </script>
+
+    <body style="background-color: #15181b;">
+        <section>
+            <nav>
+                <div>
+                    <div data-ux="Block">
+                        <img src="//img1.wsimg.com/isteam/ip/45cec8a6-a58d-4286-83e0-29368cb0797b/blob-ad9bb88.png/:/rs=h:77,cg:true,m/qt=q:95" srcset="//img1.wsimg.com/isteam/ip/45cec8a6-a58d-4286-83e0-29368cb0797b/blob-ad9bb88.png/:/rs=w:104,h:77,cg:true,m/cr=w:104,h:77/qt=q:95,
+                        //img1.wsimg.com/isteam/ip/45cec8a6-a58d-4286-83e0-29368cb0797b/blob-ad9bb88.png/:/rs=w:208,h:154,cg:true,m/cr=w:208,h:154/qt=q:95 2x,
+                         //img1.wsimg.com/isteam/ip/45cec8a6-a58d-4286-83e0-29368cb0797b/blob-ad9bb88.png/:/rs=w:312,h:231,cg:true,m/cr=w:312,h:231/qt=q:95 3x" alt="victorgteam.com" data-ux="ImageLogo" data-aid="HEADER_LOGO_IMAGE_RENDERED" class="x-el x-el-img c1-1 c1-2 c1-33 c1-10 c1-u c1-s c1-r c1-t c1-11 c1-39 c1-3a c1-3b c1-23 c1-3c c1-1f c1-1g c1-1h c1-1i c1-1j c1-1k 
+                            c1-b c1-c c1-3d c1-3e c1-1l c1-3f c1-3g c1-3h c1-3i c1-3j c1-3k c1-3l c1-3m c1-3n c1-3o c1-3p c1-d c1-3q c1-3r c1-3s c1-e c1-f c1-g" />
+                    </div>
+                    <div style="display: flex; justify-content:space-around">
+                        <div style="color: white;">
+                            <video src="./video/index.mp4" height="85%" width="85%" />
+                        </div>
+                        <div style="display:table-row; flex-direction: row; justify-content:space-between">
+                            <br>
+                            <div style="justify-content: space-between; display: flex; ">
+                                <a href="/">
+                                    <button type="/Index" class="buttonIndex" style="
+                                height: 30px; width: 80px; justify-content: space-evenly;">
+                                Voltar
+                                </button>
+                                </a>
+                            </div>
+                            <div style="display: flex;text-justify: auto;   ">
+                                <div class="form-label" style="text-align: justify; color: white; font-size:x-large;">Comece agora mesmo!</div>
+                            </div>
+                            <div style="font-size: medium;">Você esta próximo de acessar o melhor conteúdo de nutrição esportiva e treinos</div>
+                            <br>
+                            <div style="justify-content:space-evenly; display: flex;">
+                                <form action="/Cadastro/create" method="POST">
+
+                                    <div style="display: flex;text-justify: auto; justify-content:space-between ;width:500px ">
+                                    <div>
+                                    <label class="form-label label1 " for="">Nome</label>
+                                    <input class="form-control form-control-lg" type="text" id="Username" value="<%= Username %>"name="Username" placeholder="Nome " style=" display: flex;text-justify: auto; background-color: rgb(33, 31, 31); border-color:rgb(163, 91, 240);">
+                                    </div>
+									<br>
+                                
+                                    <div>
+
+                                    <label class="form-label label1" for="">Sobrenome</label>
+                                    <input class="form-control form-control-lg" type="text" name="Fristname" placeholder="Sobrenome" value="<%= Fristname %>" style="background-color:  rgb(33, 31, 31);  border-color:rgb(163, 91, 240);">
+
+                                    </div>
+                        </div>
+                        <div class="form-outline" style="text-justify: auto; ">
+                                    <label class="form-label label1" for="">Email</label>
+                                    <input type="EMAIL" id="EMAIL" name="EMAIL" class="form-control form-control-lg" value="<%= EMAIL %>" placeholder="Entre com email valido" style="width:500px;background-color:  rgb(33, 31, 31);  border-color:rgb(163, 91, 240);" />
+                                    <br>
+                                    <div style="font-size: x-small; color: red; width:auto">
+                                    <% if (EMAILError) { %>
+                                        <%= EMAILError %>
+                                            <% }else{ %>
+                                                <%= EMAILRegistered %>
+                                                    <% } %>
+                                    </div>
+                                </div>
+                        <div class="form-outline mb-3" style="text-justify: auto;">
+                                    <label class="form-label label1" for="">Senha</label>
+                                    <input type="PASSWORD" id="PASSWORD" name="PASSWORD"  class="form-control form-control-lg" placeholder="Informe a senha" style="width:500px;background-color:  rgb(33, 31, 31);  border-color:rgb(163, 91, 240);" />
+                                    <div style="font-size: x-small; color: red; width:auto">
+                                        <% if (PASSWORDError) { %>
+                                            <% }else{ %>
+                                            <%= PASSWORDError1 %>
+                                                <% } %>
+                                    </div>
+                            </div>
+                            <div class="form-outline mb-3" style="text-justify: auto;">
+                                    <label class="form-label label1" for="">Confirme a senha</label>
+                                    <input type="PASSWORD" id="PASSWORD2" name="PASSWORD2" class="form-control form-control-lg" placeholder="Informe a senha novamente" style="width:500px;background-color:  rgb(33, 31, 31);  border-color:rgb(163, 91, 240);" />
+                                    <div style="font-size: x-small; color: red; width:auto">
+                                        <% if (PASSWORDError) { %>
+                                            <% }else{ %>
+                                            <%= PASSWORDError1 %>
+                                                <% } %>
+                                    </div>
+                                </div>
+
+                                    <div style="font-size: large; color: white; width:500px">
+                                        Termos e política
+                                        <p style="font-size: small; color: dimgray;">
+                                            Para seguirmos com o seu cadastro você precisa estar de acordo com nossos termos e política, que estão apresentados logo abaixo.
+                                        </p>
+                                        <br>
+                                        <div>
+                                            <input type="checkbox" id="scales" name="scales" />
+                                            <label style="font-size: medium; color: dimgray;" for="scales">Política de privacidade</label>
+                                            <div style="font-size: x-small; color: red; width:auto">
+                                                <% if (Termoserror) { %>
+                                                    <%= Termoserror %>
+                                                        <% } %>
+                                            </div>
+                                            
+                                        </div>
+
+                                       
+                                        <div>
+                                            <input type="checkbox" id="scales1" name="scales1" />
+                                            <label style="font-size: medium; color: dimgray;" for="scales">Termos de Uso</label>
+                                            <div style="font-size: x-small; color: red; width:auto">
+                                                 <% if (Termoserror1) { %>
+                                                <%= Termoserror1 %>
+                                                    <% } %>
+                                            </div>
+                                        </div>
+                                      
+                                    </div>
+                                    <br>
+                                    <div style="justify-content: space-evenly; display: flex">
+                                    <br>
+                                    <a>
+                                        <button type="submit"  
+                                            value="Enviar" 
+                                            class="button332" 
+                                            style="height: 60px; width: 500px; justify-content: space-evenly;">Cadastrar</button>              
+                                    </a>
+                                    <% if (createSuccess) { %>
+                                      
+                                        <%= createSuccess %>
+
+                                            <% } %>
+</div>
+
+                                    </div>
+
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </section>
+    </body>
+
+    <%- include('../partials/footer.ejs') %>
