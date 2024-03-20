@@ -20,10 +20,15 @@ const OITM = connection.define('OITM', {
         allowNull: false
     },
      //Unidade Medida
-     ItemMensur: {
+     ItemQuantity: {
         type: Sequelize.FLOAT,
         allowNull: false
     },
+    //Unidade Medida
+    ItemMensur: {
+       type: Sequelize.FLOAT,
+       allowNull: false
+   },
     //umidade
     ItemMiosture: {
         type: Sequelize.FLOAT,

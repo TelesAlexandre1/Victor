@@ -103,7 +103,7 @@ router.post("/Cadastro/create", async (req, res) => {
                 var salt = bcrypt.genSaltSync(10)
                 var hash = bcrypt.hashSync(PASSWORD,salt)
                 var today = new Date (); 
-                var createSuccess = "Cadastrado com sucesso! Enviaremos um email com a validação do seu cadastro!"
+                    
                 OUSR.create({
                     
                     USERNAME:Username+" "+Fristname,
@@ -114,7 +114,7 @@ router.post("/Cadastro/create", async (req, res) => {
                     ProfileImage:"assets/img/team/72x72/avatar.webp",
                     UserType: "A",
                     DateBrithday:"",   
-                    Blocked: "Y"               
+                    Blocked: "Y"      
                 }).then(() => {
                     
                   console.log("Cadastro Inserido")
@@ -191,6 +191,7 @@ router.post("/auth", (req, res) => {
     if (EMAIL == "" || EMAIL == undefined) {
         EMAILError = "Email não pode ser vazio"
     } 
+    
 
     if (PASSWORD == "" || PASSWORD == undefined) {
         PASSWORDError = "Senha não pode ser vazia"
@@ -198,21 +199,21 @@ router.post("/auth", (req, res) => {
 
     req.flash("EMAIL", EMAIL)
 
-    if (EMAIL != "" && PASSWORD != "") {
-
+    if (EMAIL != "" && PASSWORD != "" ) {
+        
         //procurar por um usuário com uma condição
         OUSR.findOne({
             where: {
                 EMAIL,Blocked: "N"
             }
         }).then(user => {
-            if (user != undefined) {
+             if (user != undefined) {
 
                 //bcrypt vai comparar a senha digita e a senha no banco de dados
                 //caso retonar um valor ela existe, caso n, ela n existe
                 var correct = bcrypt.compareSync(PASSWORD, user.PASSWORD)
                 
-                if (correct) {
+               if (correct) {
 
                     req.session.OUSR = {
                             Username: user.USERNAME,
@@ -260,6 +261,7 @@ router.post("/auth", (req, res) => {
                             }
                 }) }
                 else {
+                    
                     var PASSWORDIncorrect = " senha incorreta"
                     req.flash("PASSWORDIncorrect", PASSWORDIncorrect)
                     res.redirect("/")
@@ -274,10 +276,11 @@ router.post("/auth", (req, res) => {
             }
         })
     } else {
+       
         req.flash("EMAILError", EMAILError)
         req.flash("PASSWORDError", PASSWORDError)
 
-        res.redirect("/index")
+        res.redirect("/")
     }
 })
 
@@ -361,6 +364,10 @@ router.get("/Perfil", userAuth,Detailsuser,  (req, res) => {
         ,Fatpercent:Fatpercent,Taxmetabolic:Taxmetabolic,TypeWorkout1:TypeWorkout1,TypeWorkout2:TypeWorkout2})
        
   })  
+
+
+
+
 router.post("/Perfil/Atualiza",(req, res) => {
     
     

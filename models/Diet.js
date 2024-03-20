@@ -20,8 +20,23 @@ const Diet = connection.define('Diet', {
         type: Sequelize.STRING,
         allowNull: false
     },
-     //Dieta 
-     DocType: {
+      //Atualização 
+      Daysbefore: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
+     //Tipo 
+     TipoInfo: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
+      //Categoria 
+      TipoInfo: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
+      //Tipo de dieta 
+      DocType: {
         type: Sequelize.STRING,
         allowNull: false
     },
@@ -83,6 +98,12 @@ const Diet = connection.define('Diet', {
     //magnezio
     ItemMagnesium: {
         type: Sequelize.FLOAT,
+        allowNull: true 
+    }
+    ,
+    //Data Final
+    Datebefore: {
+        type: Sequelize.DATE,
         allowNull: true 
     }
 
